@@ -2,8 +2,18 @@
 #include <stdlib.h>
 
 int largestProductInSeries(int* series, int digits){
-    
-    return 1;
+    int product = 1;
+    int largestProduct = 1;
+    for(int i = 0; series[i + digits] != '\0'; i++){
+        for(int j = 0; j < digits; j++){
+            product *= series[i + j];
+        }
+        if(product > largestProduct){
+            largestProduct = product;
+        }
+        product = 1;
+    }
+    return largestProduct;
 }
 
 int main(int argc, char const *argv[])
@@ -13,6 +23,7 @@ int main(int argc, char const *argv[])
         bigArray[i] -= 48;
     }
     // bigArray is now an array with all the integer values listed in the original problem
-    
+    // This creates a compiler warning but its fine, the code still works
+    printf("%d\n", largestProductInSeries(bigArray, 4));
     return 0;
 }
