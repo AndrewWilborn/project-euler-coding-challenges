@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Problem 7
+// What is the 10001st prime number?
+
 struct node{
     int n;
     struct node* next;
